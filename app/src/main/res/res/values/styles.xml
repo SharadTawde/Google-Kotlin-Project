@@ -1,0 +1,59 @@
+<resources>
+
+    <style name="TextTitle">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Headline6
+        </item>
+    </style>
+
+    <style name="ToolBarSubtitle" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="android:textColor">@color/colorTextLastUpdated</item>
+    </style>
+
+    <style name="TextStateName">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Body1</item>
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+    <style name="TextLastUpdatedTime">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Overline
+        </item>
+    </style>
+
+    <style name="ImageIcon">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:tint">?colorAccent</item>
+    </style>
+
+    <style name="TextCount">
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Headline5
+        </item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="TextCountSmall">
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Subtitle2
+        </item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_margin">4dp</item>
+    </style>
+
+    <style name="LayoutStyle">
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">@dimen/dimen_16</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_margin">4dp</item>
+    </style>
+
+    <style name="TextCountDelta">
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Overline</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+</resources>
