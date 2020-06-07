@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.MainActivity.MainActivity">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15sp"
-        android:layout_marginEnd="15sp"
-        android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:layout_marginStart="15sp"
+    android:layout_marginEnd="15sp"
+    android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -193,7 +186,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/time_stamp"
+            android:id="@+id/timeStamp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/bold"
@@ -228,4 +221,3 @@
 
     </LinearLayout>
 
-</LinearLayout>

@@ -1,25 +1,18 @@
 package com.sharad.googlekt.ui.MainActivity
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.MergeAdapter
-import androidx.work.*
 import com.google.android.material.snackbar.Snackbar
-import com.sharad.googlekt.R
 import com.sharad.googlekt.databinding.ActivityMainBinding
 import com.sharad.googlekt.ui.TotalAdapter.TotalAdapter
-import com.sharad.googlekt.utils.*
-import com.sharad.googlekt.notification.NotificationWorker
+import com.sharad.googlekt.utils.State
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.InternalCoroutinesApi
 import org.koin.android.viewmodel.ext.android.viewModel
-import java.util.concurrent.TimeUnit
 
 @FlowPreview
 @ExperimentalCoroutinesApi
@@ -48,12 +41,9 @@ class MainActivity : AppCompatActivity() {
 
         initViews()
         initData()
-        initWorker()
     }
 
     private fun initViews() {
-        setSupportActionBar(binding.appBarlayout.toolbar)
-
         binding.recycler.adapter = adapter
 
         binding.swipeRefreshLayout.setOnRefreshListener {
@@ -61,26 +51,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.toolbar_menu, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.menu_uimode -> {
-                val uiMode = if (isDarkTheme()) {
-                    AppCompatDelegate.MODE_NIGHT_NO
-                } else {
-                    AppCompatDelegate.MODE_NIGHT_YES
-                }
-                applyTheme(uiMode)
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
-
-    }
 
     private fun initData() {
         viewModel.covidLiveData.observe(this, Observer { state ->
@@ -97,13 +67,6 @@ class MainActivity : AppCompatActivity() {
                     mTotalAdapter.submitList(list.subList(0, 1))
                     mStateAdapter.submitList(list.subList(1, list.size - 1))
 
-                    // Set Last Updated Time
-                    supportActionBar?.subtitle = getString(
-                        R.string.text_last_updated,
-                        getPeriod(
-                            list[0].lastUpdatedTime.toDateFormat()
-                        )
-                    )
                 }
             }
         })
@@ -115,23 +78,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadData() {
         viewModel.getData()
-    }
-
-    private fun initWorker() {
-        val constraints = Constraints.Builder()
-            .setRequiredNetworkType(NetworkType.CONNECTED)
-            .build()
-
-        val notificationWorkRequest =
-            PeriodicWorkRequestBuilder<NotificationWorker>(1, TimeUnit.HOURS)
-                .setConstraints(constraints)
-                .build()
-
-        WorkManager.getInstance(applicationContext).enqueueUniquePeriodicWork(
-            JOB_TAG,
-            ExistingPeriodicWorkPolicy.KEEP,
-            notificationWorkRequest
-        )
     }
 
     override fun onBackPressed() {

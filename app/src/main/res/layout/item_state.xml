@@ -59,7 +59,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/bold"
                 android:textColor="#B3FF093C"
-                android:textSize="10sp" />
+                android:textSize="10sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textConfirmed"
@@ -134,7 +135,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/bold"
                 android:textColor="#B32AA747"
-                android:textSize="10sp" />
+                android:textSize="10sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textRecovered"
@@ -172,7 +174,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/bold"
                 android:textColor="#B3727B82"
-                android:textSize="10sp" />
+                android:textSize="10sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textDeath"

@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.sharad.googlekt.databinding.TotalCardBinding
 import com.sharad.googlekt.model.Details
+import com.sharad.googlekt.utils.getPeriod
+import com.sharad.googlekt.utils.toDateFormat
 
 class TotalAdapter : ListAdapter<Details, TotalAdapter.TotalViewHolder>(DIFF_CALLBACK) {
 
@@ -31,6 +33,7 @@ class TotalAdapter : ListAdapter<Details, TotalAdapter.TotalViewHolder>(DIFF_CAL
             binding.textView2.text = details.active
             binding.textView3.text = details.recovered
             binding.textView4.text = details.deaths
+            binding.timeStamp.text = getPeriod(details.lastUpdatedTime.toDateFormat())
 
             // New Confirmed
             details.deltaConfirmed.let {

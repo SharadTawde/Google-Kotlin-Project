@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
@@ -10,8 +10,7 @@
         <item name="colorSurface">@color/colorSurface</item>
         <item name="android:colorBackground">@color/background</item>
         <item name="android:statusBarColor">@color/colorPrimary</item>
-        <item name="android:windowLightStatusBar" tools:targetApi="m">@bool/windowLightStatusBar
-        </item>
+        <item name="android:windowLightStatusBar">true</item>
 
         <item name="fontFamily">@font/bold</item>
     </style>

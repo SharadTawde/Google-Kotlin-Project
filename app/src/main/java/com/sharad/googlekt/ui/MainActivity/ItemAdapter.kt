@@ -45,6 +45,21 @@ class ItemAdapter(val clickListener: (stateDetails: Details) -> Unit = {}) :
             binding.textRecovered.text = details.recovered
             binding.textDeath.text = details.deaths
 
+
+            details.deltaConfirmed.let {
+                binding.textStateNewConfirm.text = "[+" + details.deltaConfirmed + "]"
+            }
+
+            // New Recovered
+            details.deltaRecovered.let {
+                binding.textStateNewRecover.text = "[+" + details.deltaRecovered + "]"
+            }
+
+            // New Deaths
+            details.deltaDeaths.let {
+                binding.textStateNewDeath.text = "[+" + details.deltaDeaths + "]"
+            }
+
             // Set Click Listener
             binding.root.setOnClickListener {
                 if (bindingAdapterPosition == RecyclerView.NO_POSITION) {
